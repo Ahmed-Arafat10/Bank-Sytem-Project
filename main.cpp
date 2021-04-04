@@ -433,6 +433,11 @@ if(user_options == 3){
     }
 }
     else if(user_or_client == 2){
+            if((ll)bankacc_list.size() == 0)
+            {
+                std::cout<<"No one Is Registered In System\n\n";
+                continue;
+            }
        std::cout<<"Please enter your name : "<<std::endl;
     getline(std::cin,name_of_client);
     getline(std::cin,name_of_client);
@@ -461,13 +466,18 @@ if(is_exist){
     else if(client_option==2){
         bankacc_list[nooo].withdraw();
     }
-     else if(client_option==3){
+     else if(client_option == 3){
+             if((ll)bankacc_list.size() == 1)
+            {
+                std::cout<<"You're The Only One Who Is Registered In System\n\n";
+                continue;
+            }
              printf("Please enter value you want to transfer then enter number of bank account you want to transfer money to : ");
     ld b;
     int other;
     std::cin>>b>>other;
     HERE:
-    if(other==bankacc_list[nooo].Client_acc_no_getter()){
+    if(other == bankacc_list[nooo].Client_acc_no_getter()){
         std::cout<<"You can't transfer money to yourself please enter number of bank account again"<<std::endl<<std::endl;
         std::cin>>other;
         goto HERE;
